@@ -1,0 +1,8 @@
+Jinja2==2.11.2
+PyYAML==5.3.1
+google-api-python-client==1.12.3
+google-auth-httplib2==0.0.4
+google-auth-oauthlib==0.4.1
+pyinstaller==4.0
+setuptools==49.2.1
+slack-cli==2.2.9

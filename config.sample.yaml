@@ -1,0 +1,44 @@
+slack_token: "xoxs-..."
+
+gdocs_creds_json: "/tmp/gservice-account.h=json"
+
+check_in:
+  receivers:
+    - "slack:an.user"
+    - "slack:a-channel"
+    - "gdoc:a_gdoc_id"
+  delay: [5, 3, 9]
+  strategy: "SAMPLE"
+  messages:
+    - "jolly morning 😎 checking in"
+    - "checking in ⚒"
+    - "oh hai! 😻 checking in"
+    - "top o' the mornin'! 🇮🇪 checking in"
+    - "howdy how! 🎅 checking in"
+    - "ready for work 🛠"
+    - "tjena, tjena 🍵 checking in"
+    - "hej, hej 🍵 checking in"
+    - "goedemorgen! 🇳🇱 checking in"
+    - "Jah bless! 🇯🇲 checking in"
+
+workplan:
+  receivers:
+    - "gdoc:another_gdoc_id"
+    - "slack:another.user"
+  strategy: "BROADCAST"
+  messages:
+    - text: "Workplan for today"
+      style: "HEADING_2"
+    - style: "LIST"
+      items: ["main goal", "secondary goal"]
+
+worklog:
+  receivers:
+    - "gdoc:another_gdoc_id"
+    - "slack:another.user"
+  strategy: "BROADCAST"
+  messages:
+    - text: "Worklog for today"
+      style: "HEADING_2"
+    - style: "LIST"
+      items: ["achieved this", "achieved that"]
