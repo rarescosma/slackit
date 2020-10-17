@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from itertools import product
 from typing import Iterable, Iterator, List, Sequence, Tuple, Union, cast
 
-__version__ = "0.3.5"
+__version__ = "0.3.6"
 
 EventSpec = dict
 ReceiverSpec = str
@@ -47,7 +47,7 @@ class Event:
             return product(self.receivers, self.messages)
         if self.strategy == "SAMPLE":
             return zip(self.receivers, self._message_samples)
-        raise ValueError(f"Uknown strategy: '{self.strategy}'")
+        raise ValueError(f"Unknown strategy: '{self.strategy}'")
 
     @property
     def _message_samples(self) -> List[MessageSpec]:

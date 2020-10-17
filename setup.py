@@ -19,7 +19,7 @@ setup(
     name=PROJECT,
     packages=[PROJECT],
     package_data={PROJECT: ["py.typed"]},
-    version="0.1.0",
+    version="0.3.6",
     description="Automate myself",
     author="Rareș Cosma",
     author_email="rares@getbetter.ro",
