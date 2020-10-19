@@ -11,3 +11,4 @@ script:
       if [[ $TRAVIS_PYTHON_VERSION != '3.9-dev' ]]; then
         pylint slackit
       fi
+    - make

@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from itertools import product
 from typing import Iterable, Iterator, List, Sequence, Tuple, Union, cast
 
-__version__ = "0.3.8"
+__version__ = "0.3.9"
 
 EventSpec = dict
 ReceiverSpec = str
