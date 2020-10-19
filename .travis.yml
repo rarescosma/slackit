@@ -2,7 +2,12 @@ dist: xenial
 language: python
 python:
     - "3.8"
+    - "3.9-dev"
 install:
     - pip install -r requirements.txt -r test-requirements.txt
 script:
     - make test
+    - |
+      if [[ $TRAVIS_PYTHON_VERSION != '3.9-dev' ]]; then
+        pylint slackit
+      fi
