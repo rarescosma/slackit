@@ -28,9 +28,12 @@ def _parse_json_export(json_file: Path) -> dict:
     _parsed = json.loads(json_file.read_text())[0]
     context = {"page_title": _parsed["title"]}
     for child in _parsed["children"]:
-        context[_removesuffix(child["string"].lower(), "::")] = [
-            _["string"] for _ in child["children"]
-        ]
+        if child.get("string", "").lower().endswith("::") and child.get(
+            "children"
+        ):
+            context[_removesuffix(child["string"].lower(), "::")] = [
+                _["string"] for _ in child["children"]
+            ]
     return context
 
 
