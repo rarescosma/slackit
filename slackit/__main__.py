@@ -4,7 +4,7 @@ import argparse
 import sys
 import time
 from collections import OrderedDict
-from multiprocessing import Pool
+from multiprocessing.dummy import Pool
 from pathlib import Path
 from typing import Dict, List
 
