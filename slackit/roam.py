@@ -32,7 +32,7 @@ def _parse_json_export(json_file: Path) -> dict:
             "children"
         ):
             context[_removesuffix(child["string"].lower(), "::")] = [
-                _["string"] for _ in child["children"]
+                _["string"] for _ in child["children"] if _["string"]
             ]
     return context
 
