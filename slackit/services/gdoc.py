@@ -24,7 +24,11 @@ class Api:
         self, text: str, style: str = "NORMAL_TEXT", add_break: bool = True
     ) -> Indexes:
         """Append a styled element."""
-        start_index = self._last_indexes()[1] - 1
+        _indexes = self._last_indexes()
+        if not text:
+            return _indexes
+
+        start_index = _indexes[1] - 1
         start_index, end_index = self._update(
             [
                 {
@@ -65,10 +69,11 @@ class Api:
     def append_list(self, paragraphs: List[str]) -> Indexes:
         """Append a list element."""
         start_index, end_index = self._last_indexes()[1] - 1, 0
-        for paragraph in paragraphs[:-1]:
+        non_empty = [_ for _ in paragraphs if _]
+        for paragraph in non_empty[:-1]:
             self.append_styled(paragraph)
 
-        end_index = self.append_styled(paragraphs[-1], add_break=False)[1] - 1
+        end_index = self.append_styled(non_empty[-1], add_break=False)[1] - 1
 
         self._update(
             [
